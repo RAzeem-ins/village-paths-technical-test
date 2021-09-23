@@ -1,7 +1,7 @@
 import {configureStore, getDefaultMiddleware} from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
-import rootReducer from './rootReducers'
-import rootSaga from './rootSaga';
+import rootReducer from './reducers/rootReducers'
+import rootSaga from './actions/rootSaga';
 
 export default function configureAppStore(preloadedState) {
 
