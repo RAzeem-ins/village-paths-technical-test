@@ -5,7 +5,7 @@ import SignupPage from "../features/OnBoarding/SignupPage";
 import Header from "../shared/headers/Header";
 import AccoutnImg from "../../assets//svg/user-cards.svg";
 import JoinOrgImg from "../../assets/svg/join-org.svg";
-import JoiningCards from "../shared/svg/user-cards.svg";
+import JoiningCards from "../../assets/svg/user-cards.svg";
 
 const images = [JoiningCards, AccoutnImg, JoinOrgImg];
 let titlesArray = ["terms"];

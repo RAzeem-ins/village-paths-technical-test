@@ -1,6 +1,6 @@
 import axios from 'axios';
-import constants from 'common/utils/constants';
-
+import constants from './constants';
+ 
 const axiosClient = axios.create();
 
 axiosClient.defaults.baseURL = constants.HOST_URL;

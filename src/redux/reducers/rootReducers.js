@@ -1,4 +1,4 @@
-import authentication from 'features/OnBoarding/authenticationSlice';
+import authentication from '../../components/features/OnBoarding/authenticationSlice';
 
 //Include all the reducer to combine and provide to configure store.
 
