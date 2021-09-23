@@ -9,7 +9,7 @@ import { useSelector } from 'react-redux'
 import './App.scss';
 import ProtectedRoutes from 'routes/ProtectedRoutes';
 
-const LoginPage = lazy(() => import('features/OnBoarding/LoginPage'));
+const OboardingPage = lazy(() => import('./components/pages/OnboardingPage'));
 
 
 
@@ -22,10 +22,10 @@ function App() {
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <PublicRoute path="/login" isAuthenticated={isAuthenticated}>
-            <LoginPage/>
+            <OboardingPage state="signup"/>
           </PublicRoute>
           <PrivateRoute path="/" isAuthenticated={isAuthenticated}>
-            <ProtectedRoutes/>
+          <OboardingPage state="authorized" />
           </PrivateRoute>
         </Switch>
       </Suspense>
