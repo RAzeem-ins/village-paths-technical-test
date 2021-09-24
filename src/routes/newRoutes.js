@@ -2,6 +2,7 @@ import { shallowEqual, useSelector } from 'react-redux';
 import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import UnauthorizedLayout from '../components/layouts/UnauthorizedLayout'
+import Signup from '../components/features/OnBoarding/SignupPage'; 
 // ----------------------------------------------------------------------
 export function Router() {
   const auth = useSelector(state => state, shallowEqual);
@@ -23,7 +24,7 @@ export function Router() {
             path: '/',
             element: auth.isLoggedIn ?  <Navigate to="/dashboard/main" replace /> : <UnauthorizedLayout />,
             children: [
-              { path: 'register', element: <Register /> },
+              { path: 'register', element: <Signup /> },
             ],
           },
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Menu, Avatar, Popover, Typography, Space } from "antd";
 import { UserOutlined, DownOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
@@ -12,13 +12,11 @@ const DashboardHeader = () => {
   const { SubMenu } = Menu;
 
   const dispatch = useDispatch();
-  const history = useHistory();
   const handleVisibleChange = (visible) => {
     setVisible(visible);
   };
   const onLogout = () => {
     dispatch(logout());
-    history.push("/onBoarding");
   };
 
   const switchToPath = () => {
