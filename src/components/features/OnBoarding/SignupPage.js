@@ -7,14 +7,13 @@ import { login } from "./authenticationSlice";
 
 function SignupPage(props) {
   const { signUp, signupError, loading } = props;
-  const [email, setEmail] = useState(" ");
-  const [password, setPassword] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
   const loader = useSelector((state) => state.authentication.loader);
 
   const dispatch = useDispatch();
-
+  const  onSubmit = (data)=>{
+    const {email,firstName,lastName,password}= data.user;
+    console.log(email,firstName,lastName,password)
+  }
   return (
     <div>
       <div>
@@ -28,16 +27,14 @@ function SignupPage(props) {
             name="basic"
             size="large"
             initialValues={{ remember: false }}
-            onFinish={() => {
-              signUp(email, password, firstName, lastName);
-            }}
+            onFinish={onSubmit}
           >
             {signupError && <p style={{ color: "red" }}>{signupError}</p>}
             <Row>
               <Col span="24">
                 <Form.Item
                   style={{ padding: "12px 0 0" }}
-                  name="email"
+                  name={["user","email"]}
                   className="border-radius form-input"
                   rules={[
                     {
@@ -53,8 +50,6 @@ function SignupPage(props) {
                 >
                   <Input
                     placeholder="eg., email@address.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </Form.Item>
               </Col>
@@ -62,34 +57,30 @@ function SignupPage(props) {
             <Row justify="space-between">
               <Col span="12">
                 <Form.Item
-                  name="First Name"
+                  name={["user","firstName"]}
                   className="border-radius"
                   rules={[{ required: true }]}
                 >
                   <Input
                     placeholder="eg., Jon"
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
                   />
                 </Form.Item>
               </Col>
               <Col span="11">
                 <Form.Item
-                  name="Last Name"
+                  name={["user","lastName"]}
                   className="border-radius"
                   rules={[{ required: true }]}
                 >
                   <Input
                     placeholder="eg., Doe"
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
                   />
                 </Form.Item>
               </Col>
             </Row>
             <Form.Item
               style={{ paddingBottom: "2.25rem" }}
-              name="password"
+              name={["user","password"]}
               className="border-radius"
               rules={[
                 { required: true, message: "Please input your password!" },
@@ -101,8 +92,6 @@ function SignupPage(props) {
             >
               <Input.Password
                 placeholder="Create a password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Item>
             <Form.Item style={{ paddingBottom: "2.25rem" }}>
