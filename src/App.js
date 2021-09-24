@@ -7,11 +7,11 @@ import {
 } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import './App.scss';
-import newRoutes from './routes/newRoutes'
+import AppRoutes from './routes/AppRoutes'
 //import ProtectedRoutes from 'routes/ProtectedRoutes';
 //const OboardingPage = lazy(() => import('./components/pages/OnboardingPage'));
 
-
+ 
 
 function App() {
   //Getting isAuthenticated store value from Authentication slice.
@@ -19,7 +19,10 @@ function App() {
 
   return (
           
-    <newRoutes />
+   <Router>
+      <AppRoutes />
+   </Router>
+       
     // <Router>
     //   <Suspense fallback={<div>Loading...</div>}>
     //     <Switch>

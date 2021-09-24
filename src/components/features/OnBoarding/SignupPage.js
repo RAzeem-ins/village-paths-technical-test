@@ -2,11 +2,10 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { Form, Input, Row, Col } from "antd";
-import StyledButton from "../../shared/button/Button";
 import { login } from "./authenticationSlice";
+import './SignupPage.css'
 
 function SignupPage(props) {
-  const { signUp, signupError, loading } = props;
   const loader = useSelector((state) => state.authentication.loader);
 
   const dispatch = useDispatch();
@@ -29,13 +28,11 @@ function SignupPage(props) {
             initialValues={{ remember: false }}
             onFinish={onSubmit}
           >
-            {signupError && <p style={{ color: "red" }}>{signupError}</p>}
             <Row>
               <Col span="24">
                 <Form.Item
-                  style={{ padding: "12px 0 0" }}
                   name={["user","email"]}
-                  className="border-radius form-input"
+                  className="emailPadding border-radius form-input"
                   rules={[
                     {
                       required: true,
@@ -44,7 +41,7 @@ function SignupPage(props) {
                     {
                       type: "email",
                       message:
-                        "The email format doesn’t look right. Please try again",
+                        "Please provide valid email",
                     },
                   ]}
                 >
@@ -59,7 +56,7 @@ function SignupPage(props) {
                 <Form.Item
                   name={["user","firstName"]}
                   className="border-radius"
-                  rules={[{ required: true }]}
+                  rules={[{ required: true, message: "first name is required"  }]}
                 >
                   <Input
                     placeholder="eg., Jon"
@@ -70,7 +67,7 @@ function SignupPage(props) {
                 <Form.Item
                   name={["user","lastName"]}
                   className="border-radius"
-                  rules={[{ required: true }]}
+                  rules={[{ required: true, message: "last name is required" }]}
                 >
                   <Input
                     placeholder="eg., Doe"
@@ -79,9 +76,8 @@ function SignupPage(props) {
               </Col>
             </Row>
             <Form.Item
-              style={{ paddingBottom: "2.25rem" }}
               name={["user","password"]}
-              className="border-radius"
+              className=" paddingBottom border-radius"
               rules={[
                 { required: true, message: "Please input your password!" },
                 {
@@ -94,10 +90,11 @@ function SignupPage(props) {
                 placeholder="Create a password"
               />
             </Form.Item>
-            <Form.Item style={{ paddingBottom: "2.25rem" }}>
-              <StyledButton loading={loader} htmlType="submit">
-                Continue
-              </StyledButton>
+            <Form.Item className="paddingBottom" >
+              <button type="submit" id="continue-btn">
+                Continue 
+              </button>
+              
             </Form.Item>
           </Form>
         </Col>

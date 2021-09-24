@@ -1,0 +1,41 @@
+.left-btn {
+  cursor: "pointer"
+}
+.img-section {
+  height: 93vh;
+  text-align: center; 
+  background: #F5F5F6;
+}
+.img-container{
+  margin-top: "3rem" 
+}
+
+@media screen and (min-width: 980px) {
+  .img-tag {
+    width: 400px;
+    height: 300px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .img-tag {
+    width: 350px;
+    height: 280px;
+  }
+  .img-section {
+    height: auto;
+    max-height: 93vh;
+    vertical-align: center;
+  }
+}
+@media screen and (max-width: 425px) {
+  .img-tag {
+    width: 300px;
+    height: 250px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .img-tag {
+      width: 250px;
+      height: 250px;
+    }
+}

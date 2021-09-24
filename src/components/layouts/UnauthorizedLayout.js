@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col } from "antd";
-import LeftArrow from "../shared/button/LeftArrow";
-
+import LeftArrowSvg from '../../assets/svg/arrow-left.svg'
+import './UnauthorizedLayout.css';
 const UnauthorizedLayout = (props) => {
   return (
     <Row>
@@ -19,8 +19,15 @@ const UnauthorizedLayout = (props) => {
             sm={{ span: 23, offset: 1 }}
             md={{ span: 1, offset: 1 }}
           >
-            <span style={{ cursor: "pointer" }}>
-              <LeftArrow />
+            <span className="left-btn">
+            <img  src={LeftArrowSvg}
+    alt="Arrow-Svg"
+    style={{
+      padding: '.5rem',
+      borderRadius: '50%',
+      border: '1px solid lightGrey',
+    }}
+  />
             </span>
           </Col>
           <Col
@@ -38,10 +45,10 @@ const UnauthorizedLayout = (props) => {
         md={24}
         lg={11}
         span={11}
-        className="onBoarding-img-section"
+        className="img-section"
       >
-        <div style={{ marginTop: "3rem" }}>
-          <img className={`img-org`} src={props.photo} alt="onboarding logo" />
+        <div className="img-container">
+          <img className="img-tag" src={props.photo} alt="Side-Logo" />
         </div>
       </Col>
     </Row>
